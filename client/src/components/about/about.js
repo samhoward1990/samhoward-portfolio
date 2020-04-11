@@ -9,7 +9,7 @@ const About = () => (
         <div className="bg-white">
             <Row>
                 <Col xs="12">
-                    <h2 className="styled-header border-bottom p-3 ml-5 mb-0">About Me</h2>
+                    <h2 className="styled-header border-bottom p-3 ml-5 mr-5 mb-0">About Me</h2>
                 </Col>
             </Row>
             <Row>
