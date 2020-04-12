@@ -13,19 +13,19 @@ const Contact = () => (
             <Form className="ml-5 mr-5 p-3">
                 <Row>
                     <Col xs="4">
-                        <Form.Group controlId="formGroupFirstName">
+                        <Form.Group controlId="firstName">
                             <Form.Label>First name</Form.Label>
                             <Form.Control placeholder="John" />
                         </Form.Group>
                     </Col>
                     <Col xs="4">
-                        <Form.Group controlId="formGroupLastName">
+                        <Form.Group controlId="lastName">
                             <Form.Label>Last name</Form.Label>
                             <Form.Control placeholder="Doe" />
                         </Form.Group>
                     </Col>
                     <Col xs="4">
-                        <Form.Group controlId="formGroupCompany">
+                        <Form.Group controlId="company">
                             <Form.Label>Company</Form.Label>
                             <Form.Control placeholder="John Doe Inc." />
                         </Form.Group>
@@ -33,13 +33,13 @@ const Contact = () => (
                 </Row>
                 <Row>
                     <Col xs="6">
-                        <Form.Group controlId="formGroupEmail">
+                        <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="email" placeholder="johndoe@email.com" />
                         </Form.Group>
                     </Col>
                     <Col xs="6">
-                        <Form.Group controlId="formPhoneNumber">
+                        <Form.Group controlId="phoneNumber">
                             <Form.Label>Phone number</Form.Label>
                             <Form.Control placeholder="800-000-0000"></Form.Control>
                         </Form.Group>
@@ -47,7 +47,7 @@ const Contact = () => (
                 </Row>
                 <Row>
                     <Col xs="12">
-                        <Form.Group controlId="formGroupMessage">
+                        <Form.Group controlId="message">
                             <Form.Label>Message</Form.Label>
                             <Form.Control as="textarea" rows="4" placeholder="Optional" />
                         </Form.Group>
