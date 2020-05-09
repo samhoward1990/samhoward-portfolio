@@ -1,7 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-require("dotenv").config();
 const nodemailer = require("nodemailer");
 
 const app = express();
@@ -17,10 +17,19 @@ const transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         type: "OAuth2",
-        user: process.env.EMAILUSER,
-        clientId: process.env.EMAILCLIENTID,
-        refreshToken: process.env.EMAILREFRESHTOKEN,
-        accessToken: process.env.EMAILACCESSTOKEN,
+        user: process.env.EMAIL_USER,
+        clientId: process.env.EMAIL_CLIENT_ID,
+        clientSecret: process.env.EMAIL_CLIENT_SECRET,
+        refreshToken: process.env.EMAIL_REFRESH_TOKEN,
+    }
+});
+
+transporter.set('oauth2_provision_cb', (user, renew, callback) => {
+    let accessToken = userTokens[user];
+    if (!accessToken) {
+        return callback(new Error('Unknown user'));
+    } else {
+        return callback(null, accessToken);
     }
 });
 app.post('/send', (req, res) => {
@@ -32,7 +41,7 @@ app.post('/send', (req, res) => {
 
     let mailOptions = {
         from: name,
-        to: process.env.EMAILUSER,
+        to: process.env.EMAIL_USER,
         subject: "Portfolio contact form",
         text: `Name: ${name} \n Company: ${company} \n Email: ${email} \n Phone Number: ${phoneNumber} \n message: ${message}`
     }
